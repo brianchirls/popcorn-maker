@@ -7,7 +7,7 @@
     b.eventeditor( { target: "popup-4", defaultEditor: "lib/defaultEditor.html", editorWidth: "98%", editorHeight: "98%"  } );
 
     b.previewer({
-      layout: "layouts/default.html",
+      layout: "layouts/cgg/",
       target: "main",
       media: "http://robothaus.org/bugs/video/brendan1.ogv",
       callback: function() {
