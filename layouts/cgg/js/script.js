@@ -8,6 +8,24 @@
 	//var popcorn = Popcorn('#video', { frameAnimation: true } );
 	var popcorn = Popcorn.instances[0];
 	
+	var Butter, butter, client;
+	if (window.parent && window.parent.Butter) {
+		Butter = window.parent.Butter
+		//butter = new Butter();
+		client = new Butter.CommClient('cgg');
+		client.listen( "updatetrackevent", function( message ) {
+			console.log("updatetrackevent", message);
+		});
+
+		client.listen( "updatetrackevent", function( message ) {
+			console.log("updatetrackevent", message);
+		});
+
+//		butter.listen('trackeventadded', function(what) {
+//		});
+//		butter.listen('trackeventupdated', function(what) {
+//		});
+	}
 	//get list of photos from flickr
 	var apikey = '3b1a167af8d3b3a1874f50fba0860093';
 	
@@ -26,7 +44,7 @@
 			load();
 		}
 	}
-	
+		
 	function load() {
 		var i;
 		for (i = 0; i < 10 && i < flickrData.length && time < popcorn.duration(); i++) {
@@ -47,7 +65,7 @@
 					5 + r() * 80,
 					5 + r() * 40
 				],
-				onLoad: imageLoaded
+				onLoad: 'imageLoaded'
 			});
 	
 			flickrData.shift();
@@ -83,7 +101,7 @@
 			document.getElementById('form').style.display = 'none';
 			
 			flickrData = data.photos.photo;
-			load();
+//			load();
 		});
 	}
 

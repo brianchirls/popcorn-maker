@@ -228,6 +228,7 @@
           author: "Brian Chirls",
           website: "http://chirls.com/"
         },
+        customEditor: 'layouts/cgg/popcorn.flickr.kenburns.editor.html',
         options: {
           start: {
             elem: "input",
