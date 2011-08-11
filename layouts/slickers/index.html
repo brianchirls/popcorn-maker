@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<title>City Slickers</title>
+		<style type="text/css">
+
+		body {
+			margin: 0;
+			background-color: #aaa;
+		}
+		
+		#map {
+			background-color: #aaa;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: 0;
+		}
+		
+		/*
+		I'd hoped I'd never have to use one of these. Blech.
+		*/
+		#stupid-vertical-spacer {
+			height: 0;
+			visibility: hidden;
+		}
+		
+		#main-container {
+			position: relative;
+			white-space-collapse: discard;
+		}
+		
+		#video-container video {
+			width: 100%;
+			display: block;
+			opacity: 1;
+			-moz-transition: opacity 0.4s;
+			-webkit-transition: opacity 0.4s;
+			-opera-transition: opacity 0.4s;
+			-ie-transition: opacity 0.4s;
+			transition: opacity 0.4s;
+		}
+
+		#video-container {
+			position: relative;
+			pointer-events: none;
+			z-index: 1;
+			opacity: 1;
+			-moz-transition: opacity 0.4s;
+			-webkit-transition: opacity 0.4s;
+			-opera-transition: opacity 0.4s;
+			-ie-transition: opacity 0.4s;
+			transition: opacity 0.4s;
+		}
+		
+		#video-container video:hover, #video-container video.hover {
+			-webkit-transition: opacity 0.4s;
+			-opera-transition: opacity 0.4s;
+			-ie-transition: opacity 0.4s;
+			transition: opacity 0.4s;
+			opacity: 0.2;
+		}
+		
+		#controls {
+			position: absolute;
+			z-index: 99;
+			right: 0px;
+			bottom: 0px;
+			width: 400px;
+			height: 40px;
+			background-color: rgba(255, 255, 255, 0.4);
+		}
+		
+		#controls > div {
+			cursor: pointer;
+		}
+
+		#play-button {
+			float: left;
+			width: 30px;
+			height: 30px;
+			margin: 5px;
+			background-color: rgba(0, 0, 0, 0.4);
+		}
+		
+		#play-button:hover, #play-button:active {
+			background-color: rgba(40, 40, 80, 0.4);
+		}
+
+		#play-button > span {
+			border-bottom: 7px solid transparent;
+			border-left: 12px solid #fff;
+			border-top: 7px solid transparent;
+			display: block;
+			font-size: 0;
+			height: 0;
+			line-height: 0;
+			margin: 8px 0 0 10px;
+			width: 0;
+		}
+
+		#play-button.playing > span {
+			border-bottom: none;
+			border-top: none;
+			border-left: 4px solid #fff;
+			border-right: 4px solid #fff;
+			display: block;
+			font-size: 0;
+			height: 14px;
+			line-height: 0;
+			margin: 8px 0 0 10px;
+			width: 3px;
+		}
+		
+		#progress-outer {
+			float: left;
+			width: 320px;
+			height: 30px;
+			margin: 5px 5px 5px 0;
+			background-color: rgba(0, 0, 0, 0.2);
+		}
+
+		#progress {
+			width: 0%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.25);
+		}
+
+		#progress-outer:hover, #progress-outer:active {
+			background-color: rgba(40, 40, 80, 0.2);
+		}
+
+		</style>
+		<!--
+		<style type="text/css" id="wide-style" media="screen and (min-aspect-ratio: 635/264)">
+		
+		body {
+			background-color: #faa;
+		}
+
+		#stupid-vertical-spacer {
+			height: 0%;
+			visibility: hidden;
+			display: none;
+		}
+		
+		#video-container video {
+			width: 100%;
+			height: auto;
+		}
+
+		</style>
+-->
+	</head>
+	<body>
+		<div style="height: 100%; width: 100%">
+			<div id="dummy" style="display: none" data-butter="target"></div>
+			<div id="stupid-vertical-spacer">blah blah</div>
+			<div id="main-container">
+				<div id="map" style="visibility: hidden"></div>
+				<div id="video-container" style="" data-butter="media">
+				<!--
+					<video id="video" preload>
+						<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+						<source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm; codecs="vp8, vorbis"' />
+						
+						<source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg; codecs="theora, vorbis"' />
+					</video>
+				-->
+				</div>
+				<div id="controls">
+					<div id="play-button"><span></span></div>
+					<div id="progress-outer"><div id="progress"></div></div>
+				</div>
+			</div>
+		</div>
+	</body>
+<!--
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+-->
+<!--
+	<script type="text/javascript" src="../popcorn-js/popcorn.js"></script>
+	<script type="text/javascript" src="js/popcorn.slickers.js"></script>
+-->
+	<script type="text/javascript">
+	
+	(function() {
+	
+		if (!window.Popcorn) {
+			console.log('no popcorn. aborting');
+			return;
+		}
+	
+		var script = document.createElement('script');
+		script.src = 'layouts/slickers/js/script.js';
+		document.head.appendChild(script);
+	
+		script = document.createElement('script');
+		script.src = 'layouts/slickers/js/popcorn.slickers.js';
+		document.head.appendChild(script);
+	
+	}());
+	
+	
+	</script>
+</html>
