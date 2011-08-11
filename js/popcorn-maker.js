@@ -7,7 +7,7 @@
     b.eventeditor( { target: "popup-4", defaultEditor: "lib/defaultEditor.html", editorWidth: "98%", editorHeight: "98%"  } );
 
     b.previewer({
-      layout: "layouts/cgg/",
+      layout: "layouts/slickers/",
       target: "main",
       media: "http://robothaus.org/bugs/video/brendan1.ogv",
       callback: function() {
@@ -19,13 +19,16 @@
     });
     
     b.plugintray({ target: "plugin-tray", pattern: '<li class="$type_tool"><a href="#" title="$type"><span></span>$type</a></li>' });
+/*
     b.addPlugin( { type: "image" } );
+*/  
     b.addPlugin( { type: "footnote" } );
+/*
     b.addPlugin( { type: "twitter" } );
     b.addPlugin( { type: "webpage" } );
     b.addPlugin( { type: "subtitle" } );
     b.addPlugin( { type: "googlenews" } );
-    
+*/  
     b.timeline({ target: "timeline-div"});
 
     $('.enable-scroll').tinyscrollbar();

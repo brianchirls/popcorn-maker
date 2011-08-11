@@ -21,11 +21,9 @@
 			console.log("updatetrackevent", message);
 		});
 
-//		butter.listen('trackeventadded', function(what) {
-//		});
-//		butter.listen('trackeventupdated', function(what) {
-//		});
 	}
+
+return;
 	//get list of photos from flickr
 	var apikey = '3b1a167af8d3b3a1874f50fba0860093';
 	
